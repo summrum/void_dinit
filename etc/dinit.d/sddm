@@ -1,0 +1,5 @@
+# SDDM service
+type            = process
+command         = /etc/dinit.d/sddm.sh
+smooth-recovery = true
+depends-on      = loginready

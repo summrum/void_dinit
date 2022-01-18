@@ -1,0 +1,5 @@
+type         = scripted
+command      = /etc/dinit.d/backlight start
+stop-command = /etc/dinit.d/backlight stop
+restart      = false
+waits-for    = rootrw

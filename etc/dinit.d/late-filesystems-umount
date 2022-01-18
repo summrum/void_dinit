@@ -1,0 +1,6 @@
+type = scripted
+command = /etc/dinit.d/late-filesystems-umount.sh start
+stop-command = /etc/dinit.d/late-filesystems-umount.sh
+restart = false
+logfile = /var/log/dinit/late-filesystems-umount.log
+depends-on = loginready

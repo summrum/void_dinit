@@ -1,0 +1,6 @@
+type         = scripted
+command      = /usr/bin/ufw enable
+stop-command = /usr/bin/ufw disable
+restart      = false
+logfile      = /var/log/dinit/ufw.log
+waits-for    = rootrw

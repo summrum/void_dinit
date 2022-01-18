@@ -1,0 +1,11 @@
+# Virtual service run before login is enabled.
+
+type = internal
+restart = false
+options = runs-on-console
+
+depends-on = rcboot
+waits-for = dbusd
+waits-for = udevd
+waits-for = metalog
+waits-for = cleanup

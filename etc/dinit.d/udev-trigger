@@ -1,0 +1,7 @@
+# Trigger udev events for already-present devices.
+
+type = scripted
+command = /etc/dinit.d/udev-trigger.sh
+logfile = /run/udev-trigger.log
+restart = false
+depends-on = udevd

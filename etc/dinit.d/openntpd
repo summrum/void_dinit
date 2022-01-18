@@ -1,0 +1,5 @@
+type            = process
+command         = /usr/bin/openntpd -d
+smooth-recovery = true
+logfile         = /var/log/dinit/openntpd.log
+waits-for       = dhcpcd
