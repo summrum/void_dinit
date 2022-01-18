@@ -1,0 +1,5 @@
+#!/bin/sh
+# Default rc.local for void-dinit; add your custom commands here.
+#
+# This is run by dinit after loginready state reached
+

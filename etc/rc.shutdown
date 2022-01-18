@@ -1,0 +1,6 @@
+#!/bin/sh
+# Default rc.shutdown for void-dinit; add your custom commands here.
+#
+# This is run by dinit when loginready state stopped
+
+
