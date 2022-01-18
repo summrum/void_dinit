@@ -2,6 +2,7 @@
 
 type = scripted
 command = /etc/dinit.d/late-filesystems.sh
+stop-command = /etc/dinit.d/late-filesystems.sh stop
 restart = false
 logfile = /var/log/dinit/late-filesystems.log
 start-timeout = 0
