@@ -1,4 +1,0 @@
-type            = process
-command         = /usr/bin/cupsd -f
-smooth-recovery = true
-depends-on      = dbusd

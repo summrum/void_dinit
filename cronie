@@ -1,4 +1,0 @@
-type            = process
-command         = /usr/bin/cronie-crond -n
-smooth-recovery = true
-waits-for       = loginready

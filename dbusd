@@ -1,8 +1,0 @@
-# Dbus daemon socket-activated
-
-type = process
-command = /usr/bin/dbus-daemon --system --nofork --nopidfile
-depends-on = dbus-setup
-logfile = /var/log/dbus-daemon.log
-smooth-recovery = yes
-socket-listen = /var/run/dbus/system_bus_socket

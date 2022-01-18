@@ -1,6 +1,0 @@
-type = scripted
-command = /etc/dinit.d/udevd.sh start
-stop-command = /etc/dinit.d/udevd.sh stop
-logfile = /run/udevd.log
-restart = false
-depends-on = early-filesystems

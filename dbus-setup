@@ -1,4 +1,0 @@
-type        = scripted
-command     = /etc/dinit.d/dbus-setup.sh
-restart     = false
-depends-on  = cleanup

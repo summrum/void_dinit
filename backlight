@@ -1,5 +1,0 @@
-type         = scripted
-command      = /etc/dinit.d/backlight.sh
-stop-command = /etc/dinit.d/backlight.sh stop
-restart      = false
-depends-on   = rootrw
