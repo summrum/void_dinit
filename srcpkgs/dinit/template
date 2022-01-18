@@ -1,0 +1,17 @@
+# Template file for 'dinit'
+pkgname=dinit
+version=0.12.0
+revision=1
+build_style="gnu-makefile"
+hostmakedepends="gcc automake"
+makedepend="gmsl"
+short_desc="Service monitoring and init system"
+maintainer="Laurence <pczlab84@gmail.com>"
+license="Apache-2.0"
+homepage="https://github.com/davmac314/dinit"
+distfiles="https://github.com/davmac314/dinit/releases/download/v${version}/dinit-${version}.tar.xz"
+checksum=d5f9afe7005da7c08224dddcf2b63f37a6c4120b7493bed4669ef362cde1b544
+
+pre_build() {
+	sed -e 's,SBINDIR=/sbin,SBINDIR=/usr/bin,g' -i configs/mconfig.Linux.sh
+}
