@@ -1,0 +1,5 @@
+type         = scripted
+command      = /bin/sh /etc/rc.local
+stop-command = /bin/sh /etc/rc.shutdown
+restart      = false
+waits-for    = loginready

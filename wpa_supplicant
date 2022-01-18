@@ -1,0 +1,5 @@
+type            = process
+command         = /etc/dinit.d/wpa_supplicant.sh
+smooth-recovery = true
+logfile         = /var/log/dinit/wpa_supplicant.log
+waits-for       = udev-settle

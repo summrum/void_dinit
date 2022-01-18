@@ -1,0 +1,5 @@
+type       = scripted
+command    = /bin/sh /etc/profile.d/locale.sh
+restart    = false
+depends-on = rootrw
+depends-on = early-filesystems

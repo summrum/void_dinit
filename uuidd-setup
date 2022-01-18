@@ -1,0 +1,5 @@
+type            = scripted
+command         = /etc/dinit.d/uuidd-setup.sh
+logfile         = /var/log/dinit/uuidd-setup.log
+depends-on      = rootrw
+
