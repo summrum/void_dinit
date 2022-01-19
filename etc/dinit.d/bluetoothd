@@ -3,4 +3,5 @@ command         = /usr/libexec/bluetooth/bluetoothd -n
 smooth-recovery = true
 logfile         = /var/log/dinit/bluetoothd.log
 depends-on      = dbusd
-depends-on      = loginready
+waits-for       = loginready
+waits-for       = sddm
