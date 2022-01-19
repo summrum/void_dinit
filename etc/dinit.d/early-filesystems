@@ -1,6 +1,6 @@
-# Early (virtual) filesystems - /proc, /sys, etc
+# Early pseudo filesystems - /dev, /proc, /run/dinit, /sys, then cgroups and keymap setup
 
 type = scripted
-command = /etc/dinit.d/early-filesystems.sh start
+command = /etc/dinit.d/early-filesystems.sh
 restart = false
 options = starts-rwfs

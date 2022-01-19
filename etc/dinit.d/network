@@ -1,5 +1,6 @@
-type       = scripted
-command    = /etc/dinit.d/network.sh start
-restart    = false
-waits-for  = early-filesystems
-waits-for  = rcboot
+type         = scripted
+command      = /etc/dinit.d/network.sh start
+stop-command = /etc/dinit.d/network.sh stop
+restart      = false
+waits-for    = early-filesystems
+waits-for    = rcboot

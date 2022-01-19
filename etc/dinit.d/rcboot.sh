@@ -30,6 +30,8 @@ if [ "$1" != "stop" ]; then
       echo "Didn't setup a hostname!"
   fi
   if [ -f /etc/localtime ]; then
+	  loc_set=$(readlink -f /etc/localtime)
+      echo "$loc_set" | sed s%"/usr/share/zoneinfo/"%""%g
       echo "Timezone set to '${TIMEZONE}'"
   else
       [ -r /etc/rc.conf ] && . /etc/rc.conf
