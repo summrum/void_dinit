@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+# sleep avoids unreliable dbus-send due to race condition
 sleep 0.1s
 if [ -x /usr/bin/elogind-inhibit ]; then
         dbus-send --system --print-reply --dest=org.freedesktop.DBus \

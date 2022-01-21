@@ -2,7 +2,7 @@
 
 type = scripted
 command = /etc/dinit.d/late-filesystems.sh
-stop-command = /etc/dinit.d/late-filesystems.sh stop
+stop-command = /etc/dinit.d/late-filesystems-umount.sh
 restart = false
 logfile = /var/log/dinit/late-filesystems.log
 start-timeout = 0
