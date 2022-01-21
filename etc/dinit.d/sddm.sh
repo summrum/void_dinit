@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-sleep 1s
+sleep 0.1s
 if [ -x /usr/bin/elogind-inhibit ]; then
         dbus-send --system --print-reply --dest=org.freedesktop.DBus \
                 /org/freedesktop/DBus                           \
