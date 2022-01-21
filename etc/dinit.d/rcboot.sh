@@ -31,8 +31,8 @@ if [ "$1" != "stop" ]; then
   fi
   if [ -f /etc/localtime ]; then
 	  loc_set=$(readlink -f /etc/localtime)
-      echo "$loc_set" | sed s%"/usr/share/zoneinfo/"%""%g
-      echo "Timezone set to '${TIMEZONE}'"
+      set_zone=$(echo "$loc_set" | sed s%"/usr/share/zoneinfo/"%""%g)
+      echo "Timezone set to '${set_zone}'"
   else
       [ -r /etc/rc.conf ] && . /etc/rc.conf
       echo "Setting timezone to '${TIMEZONE}'..."

@@ -1,5 +1,12 @@
 #!/bin/sh
 set -e
+sleep 1s
+if [ -x /usr/bin/elogind-inhibit ]; then
+        dbus-send --system --print-reply --dest=org.freedesktop.DBus \
+                /org/freedesktop/DBus                           \
+                org.freedesktop.DBus.StartServiceByName         \
+                string:org.freedesktop.login1 uint32:0
+fi
 [ -r /etc/locale.conf ] && . /etc/locale.conf && export LANG
 if [ ! -d /run/dbus ]; then
 mkdir -p /var/lib/sddm

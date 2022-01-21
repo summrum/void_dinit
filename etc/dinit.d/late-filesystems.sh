@@ -9,6 +9,5 @@ else
         umount -aft "$LATE_FILESYSTEMS"
         ret=$?
         [ $ret -ne 0 ] && umount -aflt "$LATE_FILESYSTEMS"
-        umount -aflt "$LATE_FILESYSTEMS"
     fi
 fi

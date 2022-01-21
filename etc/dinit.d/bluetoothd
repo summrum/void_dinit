@@ -4,4 +4,3 @@ smooth-recovery = true
 logfile         = /var/log/dinit/bluetoothd.log
 depends-on      = dbusd
 waits-for       = loginready
-waits-for       = sddm
