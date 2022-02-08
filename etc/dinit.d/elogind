@@ -1,5 +1,4 @@
 type = process
-command = /usr/libexec/elogind/elogind.wrapper
-smooth-recovery = true
+command = /etc/dinit.d/elogind.sh
 logfile = /var/log/dinit/elogind.log
 depends-on = dbusd
