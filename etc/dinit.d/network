@@ -1,3 +1,4 @@
+# script to check for network connectivity; services dependent on network can be made to start after this
 type         = scripted
 command      = /etc/dinit.d/network.sh
 stop-command = /etc/dinit.d/late-filesystems-umount.sh
