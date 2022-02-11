@@ -1,5 +1,5 @@
 #!/bin/sh
-# code from Runit
+# code from Void Runit
 
 if [ -d /usr/sbin -a ! -L /usr/sbin ]; then
 	for f in /usr/sbin/*; do

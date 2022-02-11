@@ -1,4 +1,5 @@
 #!/bin/sh
+# code from Void Runit
 # modules-load [-n] [-v] - modules-load.d(5) compatible kernel module loader
 
 export PATH=/bin:/sbin

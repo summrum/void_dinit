@@ -5,7 +5,7 @@ umask 0077
 set -e
 
 if [ "$1" != "stop" ]; then
-  # code from Runit
+  # code from Void Runit
   install -m0664 -o root -g utmp /dev/null /run/utmp
 
   # Detect LXC containers

@@ -1,5 +1,5 @@
 #!/bin/sh
-# code from Runit
+# code from Void Runit
 # Detect LXC containers
 [ ! -e /proc/self/environ ] && return
 if grep -q lxc /proc/self/environ >/dev/null; then

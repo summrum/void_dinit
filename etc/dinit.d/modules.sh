@@ -1,5 +1,5 @@
 #!/bin/sh
-# code from Runit
+# code from Void Runit
 export PATH=/bin:/sbin
 
 for f in $(kmod static-nodes 2>/dev/null|awk '/Module/ {print $2}'); do

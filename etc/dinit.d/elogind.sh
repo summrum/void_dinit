@@ -1,5 +1,5 @@
 #!/bin/sh
-# adapted from Void Linux elogind.wrapper script
+# Code from Void Linux elogind.wrapper script
 cgroup=/sys/fs/cgroup/elogind
 
 mkdir -p "$cgroup"

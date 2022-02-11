@@ -1,5 +1,5 @@
 #!/bin/sh
-# code from Artix and Runit
+# code from Artix Dinit and Void Runit
 mountpoint -q /proc || mount -o nosuid,noexec,nodev -t proc proc /proc
 mountpoint -q /sys || mount -o nosuid,noexec,nodev -t sysfs sys /sys
 mountpoint -q /sys/kernel/security || mount -n -t securityfs securityfs /sys/kernel/security
@@ -35,7 +35,7 @@ mountpoint -q /dev/shm || mount -o mode=1777,nosuid,nodev -n -t tmpfs shm /dev/s
 mountpoint -q /run || mount -o mode=0755,nosuid,nodev -t tmpfs run /run
 mkdir -p /run/dinit
 
-# Code from Runit
+# Code from Void Runit
 [ -r /etc/rc.conf ] && . /etc/rc.conf
 
 # Detect LXC containers
@@ -77,9 +77,4 @@ if [ -z "$VIRTUALIZATION" ]; then
         mkdir -p "$_cgroupv2"
         mountpoint -q "$_cgroupv2" || mount -t cgroup2 -o nsdelegate cgroup2 "$_cgroupv2"
     fi
-fi
-
-if [ -n "$KEYMAP" ]; then
-    echo "Setting up keymap to '${KEYMAP}'..."
-    loadkeys -q -u ${KEYMAP}
 fi

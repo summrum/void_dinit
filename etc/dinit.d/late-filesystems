@@ -6,4 +6,4 @@ stop-command = /etc/dinit.d/late-filesystems-umount.sh
 restart = false
 logfile = /var/log/dinit/late-filesystems.log
 start-timeout = 0
-depends-on = network
+waits-for = network
