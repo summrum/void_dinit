@@ -4,9 +4,6 @@ type = scripted
 command = /bin/mount -o remount,rw /
 restart = false
 options = starts-rwfs
-logfile = /run/rootrw.log
-
-depends-on = early-filesystems
-depends-on = udevd
+depends-on = filesystems
 waits-for = console-setup
 waits-for = rootfscheck

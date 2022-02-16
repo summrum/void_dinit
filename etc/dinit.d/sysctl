@@ -1,4 +1,4 @@
 type      = scripted
 command   = /etc/dinit.d/sysctl.sh
 restart   = false
-waits-for = early-filesystems
+depends-on = auxfilesystems

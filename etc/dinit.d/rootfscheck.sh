@@ -13,8 +13,6 @@ if [ -z "$FASTBOOT" ]; then
     echo "Checking filesystems:"
     fsck -A -T -a -t noopts=_netdev $FORCEFSCK
     if [ $? -gt 1 ]; then
-    echo "Filesystem errors found, starting emergency shell."
-    echo "Type exit when you wish to continue booting."
-    /bin/sh -l
+        emergency_shell
     fi
 fi

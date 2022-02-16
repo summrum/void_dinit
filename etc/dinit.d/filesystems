@@ -1,12 +1,4 @@
-# Auxillary (non-root) filesystems
-
 type = scripted
-command = /usr/bin/mount -at "nosysfs,nonfs,nonfs4,nosmbfs,nocifs" -O no_netdev
+command = /etc/dinit.d/filesystems.sh
 restart = false
-logfile = /var/log/dinit/dinit-filesystems.log
-options = start-interruptible
-start-timeout = 1200   # 20 minutes
-depends-on = udevd
-depends-on = rootrw
-waits-for = auxfscheck
-waits-for = udev-settle
+depends-on = udev-settle

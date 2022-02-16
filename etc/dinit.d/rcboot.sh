@@ -1,12 +1,8 @@
 #!/bin/sh
-export PATH=/usr/bin:/usr/sbin
-umask 0077
-
-set -e
-
 if [ "$1" != "stop" ]; then
   # code from Void Runit
   install -m0664 -o root -g utmp /dev/null /run/utmp
+  halt -B  # for wtmp
 
   # Detect LXC containers
   [ ! -e /proc/self/environ ] && return
@@ -19,7 +15,7 @@ if [ "$1" != "stop" ]; then
   fi
 
   # Configure network
-  /usr/bin/ip link set up dev lo
+  ip link set up dev lo
 
 
   [ -r /etc/hostname ] && read -r HOSTNAME < /etc/hostname
@@ -41,8 +37,7 @@ if [ "$1" != "stop" ]; then
 
 else
     # The system is being shut down
-    echo "Saving random number seed..."
-    bytes="$(cat /proc/sys/kernel/random/poolsize)" || bytes=512
-    dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1
+    echo "Saving random number seed"
+    ( umask 077; bytes=$(cat /proc/sys/kernel/random/poolsize) || bytes=512; dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1 )
 
 fi;

@@ -2,5 +2,3 @@ type      = scripted
 command   = /etc/dinit.d/cleanup.sh
 restart   = false
 waits-for = rcboot
-waits-for = rootrw
-logfile   = /run/cleanup.log

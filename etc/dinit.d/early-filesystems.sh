@@ -1,39 +1,14 @@
 #!/bin/sh
-# code from Artix Dinit and Void Runit
+# code from Void Runit
+echo "Mounting pseudo-filesystems"
 mountpoint -q /proc || mount -o nosuid,noexec,nodev -t proc proc /proc
 mountpoint -q /sys || mount -o nosuid,noexec,nodev -t sysfs sys /sys
-mountpoint -q /sys/kernel/security || mount -n -t securityfs securityfs /sys/kernel/security
-[ -d /sys/firmware/efi ] && (mountpoint -q /sys/firmware/efi/efivars || mount -n -t efivarfs -o ro efivarfs /sys/firmware/efi/efivars)
+mountpoint -q /run || mount -o mode=0755,nosuid,nodev -t tmpfs run /run
 mountpoint -q /dev || mount -o mode=0755,nosuid -t devtmpfs dev /dev
-
-# seed /dev with some things that might be needed (for example,
-# xudev doesn't do this compared to eudev), code from OpenRC
-
-# creating /dev/console, /dev/tty and /dev/tty1 to be able to write
-# to $CONSOLE with/without bootsplash before udevd creates it
-[ -c /dev/console ] || mknod -m 600 /dev/console c 5 1
-[ -c /dev/tty1 ]    || mknod -m 620 /dev/tty1 c 4 1
-[ -c /dev/tty ]     || mknod -m 666 /dev/tty c 5 0
-
-# udevd will dup its stdin/stdout/stderr to /dev/null
-# and we do not want a file which gets buffered in ram
-[ -c /dev/null ] || mknod -m 666 /dev/null c 1 3
-
-# so udev can add its start-message to dmesg
-[ -c /dev/kmsg ] || mknod -m 660 /dev/kmsg c 1 11
-
-# extra symbolic links not provided by default
-[ -e /dev/fd ]     || ln -snf /proc/self/fd /dev/fd
-[ -e /dev/stdin ]  || ln -snf /proc/self/fd/0 /dev/stdin
-[ -e /dev/stdout ] || ln -snf /proc/self/fd/1 /dev/stdout
-[ -e /dev/stderr ] || ln -snf /proc/self/fd/2 /dev/stderr
-[ -e /proc/kcore ] && ln -snf /proc/kcore /dev/core
-
-mkdir -p /dev/pts /dev/shm
+mkdir -p -m0755 /run/dinit /run/lvm /run/user /run/lock /run/log /dev/pts /dev/shm
 mountpoint -q /dev/pts || mount -o mode=0620,gid=5,nosuid,noexec -n -t devpts devpts /dev/pts
 mountpoint -q /dev/shm || mount -o mode=1777,nosuid,nodev -n -t tmpfs shm /dev/shm
-mountpoint -q /run || mount -o mode=0755,nosuid,nodev -t tmpfs run /run
-mkdir -p /run/dinit
+mountpoint -q /sys/kernel/security || mount -n -t securityfs securityfs /sys/kernel/security
 
 # Code from Void Runit
 [ -r /etc/rc.conf ] && . /etc/rc.conf

@@ -11,15 +11,12 @@ depends-ms = tty5
 depends-ms = tty6
 
 # Required for boot
-depends-ms = console-setup
-depends-ms = late-filesystems
-depends-ms = locale
-depends-ms = modules
-depends-ms = rclocal
-depends-ms = swapon
+depends-ms = rcboot
+depends-ms = auxfilesystems
 depends-ms = sysctl
-depends-ms = tmpfs
-depends-ms = uuidd
+depends-ms = cleanup
+depends-ms = locale
+depends-ms = rclocal
 
-# the boot.d directory contents determine other dependencies:
+# the boot.d directory will launch user-specified services:
 waits-for.d = boot.d

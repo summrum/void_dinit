@@ -1,6 +1,6 @@
 #!/bin/sh
 # code from Void Runit
-export PATH=/bin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 for f in $(kmod static-nodes 2>/dev/null|awk '/Module/ {print $2}'); do
 	modprobe -bq $f 2>/dev/null

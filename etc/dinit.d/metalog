@@ -4,4 +4,4 @@ smooth-recovery = true
 logfile         = /var/log/dinit/metalog.log
 options         = starts-log
 
-depends-on = rcboot
+depends-on = rootrw
