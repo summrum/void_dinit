@@ -1,7 +1,5 @@
 type = scripted
 command = mount -a -t "nosysfs,nonfs,nonfs4,nosmbfs,nocifs" -O no_netdev
 restart = false
-options = start-interruptible
-start-timeout = 1200   # 20 minutes
 depends-on = rootrw
 waits-for = rootfscheck

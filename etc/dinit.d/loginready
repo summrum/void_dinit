@@ -6,6 +6,4 @@ options = runs-on-console
 
 depends-on = rcboot
 waits-for = dbusd
-waits-for = udevd
-waits-for = syslogd
-waits-for = cleanup
+waits-for = metalog

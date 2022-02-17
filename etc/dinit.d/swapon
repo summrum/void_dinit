@@ -1,4 +1,5 @@
 type         = scripted
 command      = /sbin/swapon -a
 stop-command = /sbin/swapoff -a
+waits-for    = auxfilesystems
 depends-on   = rcboot
