@@ -11,4 +11,4 @@ I have tested KDE Plasma, Openbox/Tint2/Picom and i3/i3blocks/rofi/Picom setups,
 This was purely for fun and to teach myself more about initialising a Linux system; I do not recommend using anything from this repository on anything other than a test system. I am not affiliated with any of the projects mentioned, none of this repository is supported by those projects, and I have no professional background in programming (just read a few ```man``` pages). You have been warned...
 
 ## LICENSE
-The Void-Runit scripts that this repository is primarily based on (and would not be possible without) are released in the public domain; to the extent possible under law, I waive all copyright to this work and dedicate it to the public domain.
+The Void-Runit scripts that this repository is primarily based on (and would not be possible without) are released in the public domain; to the extent possible under law, I waive all copyright to this derivative work and dedicate it to the public domain.
