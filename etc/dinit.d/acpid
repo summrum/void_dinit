@@ -1,0 +1,4 @@
+type = process
+command = acpid -f
+logfile = /var/log/dinit/acpid.log
+depends-on = rootrw
