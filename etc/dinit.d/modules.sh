@@ -6,13 +6,9 @@ for f in $(kmod static-nodes 2>/dev/null|awk '/Module/ {print $2}'); do
 	modprobe -bq $f 2>/dev/null
 done
 
-# Detect LXC containers
-[ ! -e /proc/self/environ ] && return
-if grep -q lxc /proc/self/environ >/dev/null; then
-    export VIRTUALIZATION=1
-fi
+# Detect LXC (and other) containers
+[ -z "${container+x}" ] || export VIRTUALIZATION=1
 
-[ -n "$VIRTUALIZATION" ] && return 0
 # Do not try to load modules if kernel does not support them.
 [ ! -e /proc/modules ] && return 0
 

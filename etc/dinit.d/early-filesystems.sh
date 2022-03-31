@@ -13,11 +13,12 @@ mountpoint -q /sys/kernel/security || mount -n -t securityfs securityfs /sys/ker
 # Code from Void Runit
 [ -r /etc/rc.conf ] && . /etc/rc.conf
 
-# Detect LXC containers
-[ ! -e /proc/self/environ ] && return
-if grep -q lxc /proc/self/environ >/dev/null; then
-    export VIRTUALIZATION=1
+if [ -d /sys/firmware/efi/efivars ]; then
+    mountpoint -q /sys/firmware/efi/efivars || mount -o nosuid,noexec,nodev -t efivarfs efivarfs /sys/firmware/efi/efivars
 fi
+
+# Detect LXC (and other) containers
+[ -z "${container+x}" ] || export VIRTUALIZATION=1
 
 if [ -z "$VIRTUALIZATION" ]; then
     _cgroupv1=""

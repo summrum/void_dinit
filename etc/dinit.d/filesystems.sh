@@ -1,4 +1,6 @@
 #!/bin/sh
+# Detect LXC (and other) containers
+[ -z "${container+x}" ] || export VIRTUALIZATION=1
 [ -n "$VIRTUALIZATION" ] && return 0
 
 echo "Remounting rootfs read-only"
@@ -7,6 +9,11 @@ mount -o remount,ro / || emergency_shell
 if [ -x /sbin/dmraid -o -x /bin/dmraid ]; then
     echo "Activating dmraid devices"
     dmraid -i -ay
+fi
+
+if [ -x /bin/mdadm ]; then
+    msg "Activating software RAID arrays..."
+    mdadm -As
 fi
 
 if [ -x /bin/btrfs ]; then

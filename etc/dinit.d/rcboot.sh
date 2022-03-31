@@ -1,17 +1,17 @@
 #!/bin/sh
+# code from Void Runit
+# Detect LXC (and other) containers
+[ -z "${container+x}" ] || export VIRTUALIZATION=1
 if [ "$1" != "stop" ]; then
-  # code from Void Runit
   install -m0664 -o root -g utmp /dev/null /run/utmp
   halt -B  # for wtmp
-
-  # Detect LXC containers
-  [ ! -e /proc/self/environ ] && return
-  if grep -q lxc /proc/self/environ >/dev/null; then
-      export VIRTUALIZATION=1
-  fi
+ 
   if [ -z "$VIRTUALIZATION" ]; then
-  # Configure random seed
+  # Configure random seed (modified to read poolsize, not updated to use seedrng as Void Runit)
+  umask 077
+  bytes="$(cat /proc/sys/kernel/random/poolsize)" || bytes=512
   cp /var/lib/random-seed /dev/urandom >/dev/null 2>&1 || true
+  dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1
   fi
 
   # Configure network
@@ -37,7 +37,10 @@ if [ "$1" != "stop" ]; then
 
 else
     # The system is being shut down
-    echo "Saving random number seed"
-    ( umask 077; bytes=$(cat /proc/sys/kernel/random/poolsize) || bytes=512; dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1 )
-
-fi;
+    if [ -z "$VIRTUALIZATION" ]; then
+    	echo "Saving random number seed"
+    	umask 077
+    	bytes=$(cat /proc/sys/kernel/random/poolsize) || bytes=512
+    	dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1
+    fi
+fi

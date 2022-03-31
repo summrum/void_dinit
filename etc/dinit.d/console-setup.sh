@@ -1,11 +1,8 @@
 #!/bin/sh
 # Code from Void Runit
 [ -r /etc/rc.conf ] && . /etc/rc.conf
-# Detect LXC containers
-[ ! -e /proc/self/environ ] && return
-if grep -q lxc /proc/self/environ >/dev/null; then
-    export VIRTUALIZATION=1
-fi
+# Detect LXC (and other) containers
+[ -z "${container+x}" ] || export VIRTUALIZATION=1
 [ -n "$VIRTUALIZATION" ] && return 0
 
 TTYS=${TTYS:-12}
