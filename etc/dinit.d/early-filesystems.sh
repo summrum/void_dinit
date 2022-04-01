@@ -14,7 +14,7 @@ mountpoint -q /sys/kernel/security || mount -n -t securityfs securityfs /sys/ker
 [ -r /etc/rc.conf ] && . /etc/rc.conf
 
 if [ -d /sys/firmware/efi/efivars ]; then
-    mountpoint -q /sys/firmware/efi/efivars || mount -o nosuid,noexec,nodev -t efivarfs efivarfs /sys/firmware/efi/efivars
+    mountpoint -q /sys/firmware/efi/efivars || mount -o ro,nosuid,noexec,nodev,noatime -t efivarfs efivarfs /sys/firmware/efi/efivars
 fi
 
 # Detect LXC (and other) containers
