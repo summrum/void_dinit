@@ -13,8 +13,16 @@ mountpoint -q /sys/kernel/security || mount -n -t securityfs securityfs /sys/ker
 # Code from Void Runit
 [ -r /etc/rc.conf ] && . /etc/rc.conf
 
+# Attempt to determine whether efivars should be mounted ro from kernel version
 if [ -d /sys/firmware/efi/efivars ]; then
-    mountpoint -q /sys/firmware/efi/efivars || mount -o ro,nosuid,noexec,nodev,noatime -t efivarfs efivarfs /sys/firmware/efi/efivars
+	release=$(uname -r)
+	kernel="${release%.*}"
+	efiro=$(printf "$kernel" | awk '{if ($1 < 4.5) {print "y";} else {print "n";}}')
+	if [ "$efiro" = "n" ]; then
+		mountpoint -q /sys/firmware/efi/efivars || mount -o rw,nosuid,noexec,nodev,noatime -t efivarfs efivarfs /sys/firmware/efi/efivars
+	else
+		mountpoint -q /sys/firmware/efi/efivars || mount -o ro,nosuid,noexec,nodev,noatime -t efivarfs efivarfs /sys/firmware/efi/efivars
+	fi
 fi
 
 # Detect LXC (and other) containers
