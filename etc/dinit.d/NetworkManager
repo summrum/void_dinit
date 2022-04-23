@@ -2,4 +2,4 @@ type            = process
 command         = /usr/bin/NetworkManager -d
 smooth-recovery = true
 logfile         = /var/log/dinit/NetworkManager.log
-depends-on      = dbusd
+depends-on      = dbus-up

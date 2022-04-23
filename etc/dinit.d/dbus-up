@@ -1,0 +1,4 @@
+# Dbus daemon pid check
+type = scripted
+command = /etc/dinit.d/dbus-up.sh
+depends-on = dbusd
