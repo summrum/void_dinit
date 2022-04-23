@@ -2,6 +2,6 @@
 
 type = scripted
 command = /etc/dinit.d/udev-trigger.sh
-logfile = /run/udev-trigger.log
+logfile = /run/udevd.log
 restart = false
 depends-on = udevd
