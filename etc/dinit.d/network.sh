@@ -6,7 +6,7 @@ if [ -z "$GATEWAY" ]; then
 fi
 while ! ping -W 1 -c 1 $GATEWAY; do
 echo "Waiting for network"
-sleep 1
+sleep 0.1
 done
 echo "Network responding"
 exit 0
