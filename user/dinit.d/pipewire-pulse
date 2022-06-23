@@ -1,4 +1,4 @@
 type=process
 command=/usr/bin/pipewire-pulse
 depends-on=pipewire
-logfile=/home/laurence/.config/dinit.d/log/pipewire.log
+logfile=/home/<USERNAME>/.config/dinit.d/log/pipewire.log
