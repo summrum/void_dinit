@@ -1,0 +1,3 @@
+type=scripted
+command=/home/<USERNAME>/.config/dinit.d/user-dbus-check.sh
+logfile=/home/<USERNAME>/.config/dinit.d/log/user-dbus-check.log

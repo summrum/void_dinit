@@ -1,0 +1,3 @@
+type=process
+command=/usr/bin/pipewire
+logfile=/home/laurence/.config/dinit.d/log/pipewire.log
