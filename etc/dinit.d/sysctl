@@ -1,4 +1,4 @@
 type      = scripted
-command   = /etc/dinit.d/sysctl.sh
+command   = /etc/dinit.d/scripts/sysctl.sh
 restart   = false
 depends-on = auxfilesystems

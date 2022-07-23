@@ -1,7 +1,7 @@
 # Check the root filesystem. This is interruptible with ^C
 
 type = scripted
-command = /etc/dinit.d/rootfscheck.sh start
+command = /etc/dinit.d/scripts/rootfscheck.sh start
 restart = false
 options = starts-on-console pass-cs-fd start-interruptible skippable
 start-timeout = 0  # unlimited

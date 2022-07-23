@@ -1,8 +1,8 @@
 # Various startup operations
 
 type = scripted
-command = /etc/dinit.d/rcboot.sh start
-stop-command = /etc/dinit.d/rcboot.sh stop
+command = /etc/dinit.d/scripts/rcboot.sh start
+stop-command = /etc/dinit.d/scripts/rcboot.sh stop
 logfile = /var/log/dinit/rcboot.log
 restart = false
 depends-on = rootrw

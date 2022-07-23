@@ -13,5 +13,5 @@ done
 [ ! -e /proc/modules ] && return 0
 
 echo "Loading kernel modules..."
-/etc/dinit.d/modules-load.sh -v | tr '\n' ' ' | sed 's:insmod [^ ]*/::g; s:\.ko\(\.gz\)\? ::g'
+/etc/dinit.d/scripts/modules-load.sh -v | tr '\n' ' ' | sed 's:insmod [^ ]*/::g; s:\.ko\(\.gz\)\? ::g'
 echo

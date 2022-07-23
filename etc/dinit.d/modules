@@ -1,6 +1,6 @@
 # Load kernel modules from /etc/modules
 
 type = scripted
-command = /etc/dinit.d/modules.sh
+command = /etc/dinit.d/scripts/modules.sh
 restart = false
 depends-on = early-filesystems

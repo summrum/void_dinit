@@ -1,4 +1,4 @@
 type = scripted
-command = /etc/dinit.d/filesystems.sh
+command = /etc/dinit.d/scripts/filesystems.sh
 restart = false
 depends-on = udev-settle

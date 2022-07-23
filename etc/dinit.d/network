@@ -1,6 +1,5 @@
 type         = scripted
-command      = /etc/dinit.d/network.sh
-stop-command = /etc/dinit.d/late-filesystems-umount.sh
+command      = /etc/dinit.d/scripts/network.sh
 restart      = false
 waits-for    = early-filesystems
 waits-for    = rcboot

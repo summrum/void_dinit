@@ -1,4 +1,4 @@
 type = scripted
-command = /etc/dinit.d/console-setup.sh
+command = /etc/dinit.d/scripts/console-setup.sh
 restart = false
 depends-on = udev-settle
