@@ -1,3 +1,4 @@
-type=scripted
-command=/home/<USERNAME>/.config/dinit.d/scripts/user-dbus-check.sh
-logfile=/home/<USERNAME>/.config/dinit.d/log/user-dbus-check.log
+type = scripted
+load-options = sub-vars
+command = $HOME/.config/dinit.d/user-dbus-check.sh
+logfile = $HOME/.config/dinit.d/log/user-dbus-check.log

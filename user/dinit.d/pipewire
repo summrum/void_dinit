@@ -1,3 +1,3 @@
-type=process
-command=/usr/bin/pipewire
-logfile=/home/<USERNAME>/.config/dinit.d/log/pipewire.log
+type = process
+command = /usr/bin/pipewire
+logfile = $HOME/.config/dinit.d/log/pipewire.log

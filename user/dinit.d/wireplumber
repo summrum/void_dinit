@@ -1,5 +1,6 @@
-type=process
-command=/home/<USERNAME>/.config/dinit.d/scripts/wireplumber.sh
-depends-on=pipewire
-depends-on=user-dbus-check
-logfile=/home/<USERNAME>/.config/dinit.d/log/pipewire.log
+type = process
+depends-on = pipewire
+depends-on = user-dbus-check
+load-options = sub-vars
+command = $HOME/.config/dinit.d/wireplumber.sh
+logfile = $HOME/.config/dinit.d/log/pipewire.log
