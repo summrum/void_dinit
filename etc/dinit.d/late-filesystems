@@ -1,9 +1,11 @@
 # Filesystems to be mounted after network is enabled.
 
 type = scripted
-command = /etc/dinit.d/scripts/late-filesystems.sh
-stop-command = /etc/dinit.d/scripts/late-filesystems-umount.sh
+command = /etc/dinit.d/scripts/late-filesystems.sh start
+stop-command = /etc/dinit.d/scripts/late-filesystems.sh stop
 restart = false
 logfile = /var/log/dinit/late-filesystems.log
 start-timeout = 0
 depends-on = network
+# If VPN required for network filesystems add those here, e.g. wireguard
+# depends-on = wireguard
