@@ -1,6 +1,6 @@
 # Template file for 'dinit'
 pkgname=dinit
-version=0.16.0
+version=0.16.1
 revision=1
 build_style="gnu-makefile"
 hostmakedepends="gcc automake"
@@ -9,7 +9,7 @@ maintainer="Laurence <pczlab84@gmail.com>"
 license="Apache-2.0"
 homepage="https://github.com/davmac314/dinit"
 distfiles="https://github.com/davmac314/dinit/releases/download/v${version}/dinit-${version}.tar.xz"
-checksum=c7965451ef2f2d56996b1a733585e4476a267d2f932e02bba609fd655f89c8cb
+checksum=020da31210322e01c07d30343671f6ba2b1024fab0699a1df49f390d462e8f69
 
 pre_build() {
 	sed -e 's,SBINDIR=/sbin,SBINDIR=/usr/bin,g' -i configs/mconfig.Linux.sh
