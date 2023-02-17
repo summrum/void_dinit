@@ -1,3 +1,4 @@
 type = process
 command = /usr/bin/pipewire
 logfile = $HOME/.config/dinit.d/log/pipewire.log
+ready-notification = pipefd:9
