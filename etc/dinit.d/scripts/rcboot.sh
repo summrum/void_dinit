@@ -4,7 +4,6 @@
 [ -z "${container+x}" ] || export VIRTUALIZATION=1
 if [ "$1" != "stop" ]; then
   install -m0664 -o root -g utmp /dev/null /run/utmp
-  halt -B  # for wtmp
  
   if [ -z "$VIRTUALIZATION" ]; then
   # Configure random seed (updated to use seedrng as Void Runit)
