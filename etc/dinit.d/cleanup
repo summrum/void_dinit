@@ -2,3 +2,4 @@ type      = scripted
 command   = /etc/dinit.d/scripts/cleanup.sh
 restart   = false
 waits-for = rcboot
+options = shares-console

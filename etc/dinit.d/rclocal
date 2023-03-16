@@ -2,4 +2,5 @@ type         = scripted
 command      = /bin/sh /etc/rc.local
 stop-command = /bin/sh /etc/rc.shutdown
 restart      = false
+logfile      = /var/log/dinit/rclocal.log
 depends-on   = loginready

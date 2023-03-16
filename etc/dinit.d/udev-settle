@@ -1,5 +1,5 @@
 type = scripted
 command = /usr/bin/udevadm settle
 restart = false
-logfile = /run/udevd.log
 depends-on = udev-trigger
+options = shares-console

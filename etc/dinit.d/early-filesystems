@@ -3,3 +3,4 @@ type = scripted
 command = /etc/dinit.d/scripts/early-filesystems.sh
 restart = false
 options = starts-rwfs
+options = shares-console

@@ -3,3 +3,4 @@ command = /usr/bin/mount -a -t "nosysfs,nonfs,nonfs4,nosmbfs,nocifs" -O no_netde
 restart = false
 depends-on = rootrw
 waits-for = rootfscheck
+options = shares-console

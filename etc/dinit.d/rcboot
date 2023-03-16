@@ -3,6 +3,6 @@
 type = scripted
 command = /etc/dinit.d/scripts/rcboot.sh start
 stop-command = /etc/dinit.d/scripts/rcboot.sh stop
-logfile = /var/log/dinit/rcboot.log
 restart = false
 depends-on = rootrw
+options = shares-console
