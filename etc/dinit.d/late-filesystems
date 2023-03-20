@@ -8,4 +8,4 @@ logfile = /var/log/dinit/late-filesystems.log
 start-timeout = 0
 depends-on = network
 # If VPN required for network filesystems add those here, e.g. wireguard
-after = wireguard
+# after = wireguard

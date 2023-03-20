@@ -4,17 +4,16 @@
 case "$1" in
     start)
 		if [ -n "$LATE_FILESYSTEMS" ]; then
-		    mount -a -t "$LATE_FILESYSTEMS"
+		    mount -a -v -t "$LATE_FILESYSTEMS"
 		fi
 		;;
 	stop)
 		if [ -n "$LATE_FILESYSTEMS" ]; then
-		    umount -a -f -t "$LATE_FILESYSTEMS"
-		    sleep 1s
+		    umount -a -fv -t "$LATE_FILESYSTEMS"
 		    ret=$?
+		    sleep 1s	    
 		    if [ "$ret" -ne "0" ]; then
-		    	umount -a -f -l -t "$LATE_FILESYSTEMS"
-		    	sleep 1s
+		    	umount -a -flv -t "$LATE_FILESYSTEMS" && sleep 1s
 		    	exit 0
 		    else
 		    	exit 0
