@@ -1,5 +1,5 @@
 type = process
-command = /sbin/agetty --skip-login --login-options laurence --noclear tty1 38400 linux
+command = /sbin/agetty --noclear tty1 38400 linux
 restart = true
 depends-on = loginready
 termsignal = HUP
