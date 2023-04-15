@@ -9,7 +9,7 @@ maintainer="Laurence <pczlab84@gmail.com>"
 license="Apache-2.0"
 homepage="https://github.com/davmac314/dinit"
 distfiles="https://github.com/summrum/dinit/archive/refs/heads/seedrng.zip"
-checksum=afa6d2f4683efa1d3506ab179e6237311c5da8b405f469455a81d24a7fd1e2c5
+checksum=85b011b4a02c1ef2dbfdf63f8c79c0af8221264714720b14e7aa91125354367e
 
 pre_build() {
 	sed -e 's,SBINDIR=/sbin,SBINDIR=/usr/bin,g' -i configs/mconfig.Linux.sh
