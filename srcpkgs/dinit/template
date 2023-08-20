@@ -1,6 +1,6 @@
 # Template file for 'dinit'
 pkgname=dinit
-version=0.17.0pre
+version=0.17.0
 revision=1
 build_style="gnu-makefile"
 hostmakedepends="gcc automake"
@@ -8,8 +8,8 @@ short_desc="Service monitoring and init system"
 maintainer="Laurence <pczlab84@gmail.com>"
 license="Apache-2.0"
 homepage="https://github.com/davmac314/dinit"
-distfiles="https://github.com/summrum/dinit/archive/refs/heads/seedrng.zip"
-checksum=85b011b4a02c1ef2dbfdf63f8c79c0af8221264714720b14e7aa91125354367e
+distfiles="https://github.com/davmac314/dinit/releases/download/v0.17.0/dinit-0.17.0.tar.xz"
+checksum=f3ce6eaaabd571edc16f54907cd6062f22ed5d4b6f9ae6fc1c6533f39469b1f0
 
 pre_build() {
 	sed -e 's,SBINDIR=/sbin,SBINDIR=/usr/bin,g' -i configs/mconfig.Linux.sh
