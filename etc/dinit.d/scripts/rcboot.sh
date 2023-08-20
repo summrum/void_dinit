@@ -6,9 +6,11 @@ if [ "$1" != "stop" ]; then
   install -m0664 -o root -g utmp /dev/null /run/utmp
  
   if [ -z "$VIRTUALIZATION" ]; then
-  # Configure random seed (updated to use seedrng as Void Runit)
-      echo "Seeding random number generator..."
-      seedrng || true
+  # Configure random seed (modified to read poolsize, not updated to use seedrng as Void Runit)
+  umask 077
+  bytes="$(cat /proc/sys/kernel/random/poolsize)" || bytes=512
+  cp /var/lib/random-seed /dev/urandom >/dev/null 2>&1 || true
+  dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1
   fi
 
   # Configure network
@@ -36,6 +38,8 @@ else
     # The system is being shut down
     if [ -z "$VIRTUALIZATION" ]; then
     	echo "Saving random number seed"
-    	seedrng || true
+    	umask 077
+    	bytes=$(cat /proc/sys/kernel/random/poolsize) || bytes=512
+    	dd if=/dev/urandom of=/var/lib/random-seed count=1 bs=$bytes >/dev/null 2>&1
     fi
 fi
