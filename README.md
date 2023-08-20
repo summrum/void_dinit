@@ -8,8 +8,6 @@ This repository contains files I used to get [Dinit](https://github.com/davmac31
 
 ```/srcpkgs/dinit/template``` is the template file I used for compiling Dinit using ```xbps-src```. This has built without issue for me on glibc and musl x86_x64 systems; I have not tried for other architectures. After installing Dinit, the system shutdown executables will be replaced so this is probably best carried out from a ```chroot``` (or at least making copies of the originals). [Instructions for setting Dinit as the system init on Linux](https://github.com/davmac314/dinit/blob/master/doc/linux/DINIT-AS-INIT.md) are provided at the Dinit repository. 
 
-I have tested KDE Plasma, Openbox/Tint2/Picom and i3/i3blocks/rofi/Picom setups, launchable from ```startx``` or SDDM, using Pipewire as the audio system with bluetooth and wireless network connectivity (Bluez, NetworkManager, wpa_supplicant, dhcpcd services working) on a Void musl system. All appear to be fully working and I am currently running the i3/i3blocks/rofi/Picom setup as a daily driver. Runit has been completely uninstalled from this test system using ```ignorepkg=runit``` and ```ignorepkg=runit-void``` in a ```.conf``` file in ```/etc/xbps.d/```. 
-
 ## DISCLAIMER/WARNING
 This was purely for fun and to teach myself more about initialising a Linux system; I do not recommend using anything from this repository on anything other than a test system. I am not affiliated with any of the projects mentioned, none of this repository is supported by those projects, and I have no professional background in programming (just read a few ```man``` pages). You have been warned...
 
